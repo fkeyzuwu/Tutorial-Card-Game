@@ -65,7 +65,7 @@ color = Color(0.121569, 0.615686, 0.478431, 1)
 texture = ExtResource("2_8xh7p")
 
 [node name="Abillity" parent="Background/Hand/Card2/Background" index="3"]
-text = "Whenever a card gets healed by more than 2, heal 3"
+text = "Whenever another card gets healed, heal self for same amount"
 
 [node name="Card3" parent="Background/Hand" instance=ExtResource("1_jvp8r")]
 layout_mode = 2
