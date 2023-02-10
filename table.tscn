@@ -1,14 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7vll6r1xmbek"]
+[gd_scene load_steps=11 format=3 uid="uid://duhlawvb18eo1"]
 
-[ext_resource type="PackedScene" uid="uid://7w7l8yrowq8" path="res://card.tscn" id="1_jvp8r"]
+[ext_resource type="PackedScene" uid="uid://7w7l8yrowq8" path="res://Pokemon Cards/card.tscn" id="1_jvp8r"]
 [ext_resource type="Texture2D" uid="uid://bpfh4edu1hvwl" path="res://sprites/pokemon/main-sprites/diamond-pearl/389.png" id="2_8xh7p"]
 [ext_resource type="Script" path="res://Pokemon Cards/QuagsireCard.gd" id="2_eo610"]
 [ext_resource type="Texture2D" uid="uid://cyo70l5oijilq" path="res://sprites/pokemon/main-sprites/diamond-pearl/195.png" id="2_r5l4f"]
 [ext_resource type="Texture2D" uid="uid://c7ejdsn1pumrp" path="res://sprites/pokemon/main-sprites/diamond-pearl/368.png" id="4_0ew1o"]
 [ext_resource type="Script" path="res://Pokemon Cards/TorterraCard.gd" id="4_v28bg"]
 [ext_resource type="Texture2D" uid="uid://dhenl4tjvem75" path="res://sprites/pokemon/main-sprites/diamond-pearl/356.png" id="5_hwkr8"]
-[ext_resource type="Script" path="res://GorebyssCard.gd" id="6_bb6ix"]
-[ext_resource type="Script" path="res://DusclopsCard.gd" id="8_w7ato"]
+[ext_resource type="Script" path="res://Pokemon Cards/GorebyssCard.gd" id="6_6hb3i"]
+[ext_resource type="Script" path="res://Pokemon Cards/DusclopsCard.gd" id="8_273cf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhasl"]
 bg_color = Color(0.556863, 0.309804, 0.121569, 1)
@@ -75,7 +75,7 @@ text = "Whenever another card gets healed, heal self for same amount"
 
 [node name="Card3" parent="Background/Hand" instance=ExtResource("1_jvp8r")]
 layout_mode = 2
-script = ExtResource("6_bb6ix")
+script = ExtResource("6_6hb3i")
 health = 5
 attack = null
 
@@ -90,7 +90,7 @@ text = "While in hand, whenever a card gets healed, increase attack by 3"
 
 [node name="Card4" parent="Background/Hand" instance=ExtResource("1_jvp8r")]
 layout_mode = 2
-script = ExtResource("8_w7ato")
+script = ExtResource("8_273cf")
 health = 13
 attack = 2
 
