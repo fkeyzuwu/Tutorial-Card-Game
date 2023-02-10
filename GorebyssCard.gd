@@ -6,11 +6,10 @@ func _ready() -> void:
 	state = CardState.Hand
 
 func connect_ability():
-	EventManager.add_listener(HealEventArgs, activate_ability)
+	EventManager.add_listener(HealEvent, activate_ability)
 
 func disconnect_ability():
-	EventManager.remove_listener(HealEventArgs, activate_ability)
+	EventManager.remove_listener(HealEvent, activate_ability)
 	
-func activate_ability(event_args: EventArgs):
+func activate_ability(event: Event):
 	attack += 3
-	

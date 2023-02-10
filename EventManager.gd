@@ -16,7 +16,7 @@ func remove_listener(event_type: GDScript, method: Callable):
 	
 	disconnect(event_name, method)
 
-func invoke_event(event: EventArgs):
+func invoke_event(event: Event):
 	var event_name = event.type()
 	if !has_user_signal(event_name):
 		return

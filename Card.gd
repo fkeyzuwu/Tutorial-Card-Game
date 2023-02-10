@@ -39,7 +39,7 @@ enum CardState {
 	Board
 }
 
-func activate_ability(event_args: EventArgs): #override for each invidiual card
+func activate_ability(event: Event): #override for each invidiual card
 	pass
 
 func connect_ability(): #override for each invidiual card
@@ -69,7 +69,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			var card = find_card_under_mouse()
 			if card != null:
 				card.health -= self.attack
-				var damage_event = DamageEventArgs.new()
+				var damage_event = DamageEvent.new()
 				damage_event.damage_amount = self.attack
 				damage_event.damaged_card = card
 				damage_event.damaging_card = self
@@ -81,7 +81,7 @@ func _on_gui_input(event: InputEvent) -> void:
 			var card = find_card_under_mouse()
 			if card != null:
 				card.health += self.health
-				var heal_event = HealEventArgs.new()
+				var heal_event = HealEvent.new()
 				heal_event.heal_amount = self.health
 				heal_event.healed_card = card
 				heal_event.healing_card = self
