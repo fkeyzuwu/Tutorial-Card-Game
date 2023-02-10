@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://7w7l8yrowq8"]
+[gd_scene load_steps=6 format=3 uid="uid://7w7l8yrowq8"]
 
 [ext_resource type="Script" path="res://Card.gd" id="1_enmrx"]
 [ext_resource type="FontFile" uid="uid://rxc8di7fpovr" path="res://fonts/NotoSans-Regular.ttf" id="2_opbve"]
+[ext_resource type="PackedScene" uid="uid://cor32x0547fab" path="res://heal_effect.tscn" id="3_a4kyu"]
+[ext_resource type="PackedScene" uid="uid://bvnptexd4wjaj" path="res://damage_effect.tscn" id="3_glx2b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf0h6"]
 size = Vector2(200, 300)
@@ -10,6 +12,8 @@ size = Vector2(200, 300)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_enmrx")
+heal_particle_effect = ExtResource("3_a4kyu")
+damage_particle_effect = ExtResource("3_glx2b")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 0

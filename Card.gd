@@ -3,6 +3,9 @@ class_name Card extends Control
 @onready var health_text = $Background/Health as Label
 @onready var attack_text = $Background/Attack as Label
 
+@export var heal_particle_effect: PackedScene
+@export var damage_particle_effect: PackedScene
+
 @export var health := 1:
 	set(value):
 		health = value
@@ -45,24 +48,18 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 	if state == CardState.Board:
 		if event.is_action_pressed("mouse_left") and !is_healing:
-			print("start attack")
 			is_attacking = true
 		elif event.is_action_pressed("mouse_right") and !is_attacking:
-			print("start heal")
 			is_healing = true
 		elif event.is_action_released("mouse_left") and !is_healing:
-			print("end attack")
 			var card = find_card_under_mouse()
 			if card != null:
-				card.health -= self.attack
-				print("card " + card.name + " took " + str(self.attack) + " damage")
+				card.take_damage(self.attack)
 			is_attacking = false
 		elif event.is_action_released("mouse_right") and !is_attacking:
-			print("end heal")
 			var card = find_card_under_mouse()
 			if card != null:
-				card.health += self.health
-				print("card " + card.name + " healed " + str(self.health) + " health")
+				card.recieve_heal(self.health)
 			is_healing = false
 
 func find_card_under_mouse() -> Card:
@@ -82,11 +79,24 @@ func find_card_under_mouse() -> Card:
 		else:
 			return card
 	else:
-		print("collision is empty")
 		return null
 	
 func switch_container(container_name: String):
 	var container = get_parent().get_parent().get_node(container_name)
 	reparent(container, false)
-	print("switched card to " + container_name)
 	
+func recieve_heal(amount: int):
+	health += amount
+	var particle = heal_particle_effect.instantiate() as GPUParticles2D
+	particle.position = get_viewport().get_mouse_position() #maybe change later
+	particle.rotation = rotation
+	particle.emitting = true
+	get_tree().current_scene.add_child(particle)
+
+func take_damage(amount: int):
+	health -= amount
+	var particle = damage_particle_effect.instantiate() as GPUParticles2D
+	particle.position = get_viewport().get_mouse_position() #maybe change later
+	particle.rotation = rotation
+	particle.emitting = true
+	get_tree().current_scene.add_child(particle)
