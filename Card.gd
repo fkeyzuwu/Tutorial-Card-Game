@@ -20,7 +20,16 @@ func _ready() -> void:
 	health_text.text = str(health)
 	attack_text.text = str(attack)
 
-var state: CardState = CardState.Hand
+var state: CardState = CardState.Hand:
+	set(value):
+		state = value
+		if ability_state == state:
+			connect_ability()
+		else:
+			disconnect_ability()
+			
+			
+var ability_state: CardState = CardState.Board
 
 var is_attacking := false
 var is_healing := false
@@ -30,9 +39,14 @@ enum CardState {
 	Board
 }
 
-func activate_ability(): #override for each invidiual card
+func activate_ability(event_args: EventArgs): #override for each invidiual card
 	pass
 
+func connect_ability(): #override for each invidiual card
+	pass
+	
+func disconnect_ability(): #override for each invidiual card
+	pass
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_middle"):
@@ -55,6 +69,11 @@ func _on_gui_input(event: InputEvent) -> void:
 			var card = find_card_under_mouse()
 			if card != null:
 				card.health -= self.attack
+				var damage_event = DamageEventArgs.new()
+				damage_event.damage_amount = self.attack
+				damage_event.damaged_card = card
+				damage_event.damaging_card = self
+				EventManager.invoke_event(damage_event)
 				print("card " + card.name + " took " + str(self.attack) + " damage")
 			is_attacking = false
 		elif event.is_action_released("mouse_right") and !is_attacking:
@@ -62,6 +81,11 @@ func _on_gui_input(event: InputEvent) -> void:
 			var card = find_card_under_mouse()
 			if card != null:
 				card.health += self.health
+				var heal_event = HealEventArgs.new()
+				heal_event.heal_amount = self.health
+				heal_event.healed_card = card
+				heal_event.healing_card = self
+				EventManager.invoke_event(heal_event)
 				print("card " + card.name + " healed " + str(self.health) + " health")
 			is_healing = false
 
