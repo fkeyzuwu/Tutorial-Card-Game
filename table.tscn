@@ -43,6 +43,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 250
 
+[node name="Card" parent="Hand Background/Hand" instance=ExtResource("1_jvp8r")]
+layout_mode = 2
+health = 5
+attack = 4
+
+[node name="Picture" parent="Hand Background/Hand/Card/Background" index="0"]
+texture = ExtResource("2_r5l4f")
+
+[node name="Abillity" parent="Hand Background/Hand/Card/Background" index="3"]
+text = "Whenever a card gets damaged, heal 1"
+
 [node name="Card2" parent="Hand Background/Hand" instance=ExtResource("1_jvp8r")]
 layout_mode = 2
 health = 2
@@ -84,17 +95,6 @@ texture = ExtResource("5_hwkr8")
 [node name="Abillity" parent="Hand Background/Hand/Card4/Background" index="3"]
 text = "If this card gets damaged by 5 or more points, destroy the other card"
 
-[node name="Card" parent="Hand Background/Hand" instance=ExtResource("1_jvp8r")]
-layout_mode = 2
-health = 5
-attack = 4
-
-[node name="Picture" parent="Hand Background/Hand/Card/Background" index="0"]
-texture = ExtResource("2_r5l4f")
-
-[node name="Abillity" parent="Hand Background/Hand/Card/Background" index="3"]
-text = "Whenever a card gets damaged, heal 1"
-
 [node name="Board Background" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 1152.0
@@ -114,7 +114,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 250
 
+[editable path="Hand Background/Hand/Card"]
 [editable path="Hand Background/Hand/Card2"]
 [editable path="Hand Background/Hand/Card3"]
 [editable path="Hand Background/Hand/Card4"]
-[editable path="Hand Background/Hand/Card"]
