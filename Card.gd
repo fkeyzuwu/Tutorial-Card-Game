@@ -88,7 +88,7 @@ func switch_container(container_name: String):
 func recieve_heal(amount: int):
 	health += amount
 	var particle = heal_particle_effect.instantiate() as GPUParticles2D
-	particle.position = get_viewport().get_mouse_position() #maybe change later
+	particle.position = global_position - Vector2(0, 50) #show effect on monster
 	particle.rotation = rotation
 	particle.emitting = true
 	get_tree().current_scene.add_child(particle)
@@ -96,7 +96,7 @@ func recieve_heal(amount: int):
 func take_damage(amount: int):
 	health -= amount
 	var particle = damage_particle_effect.instantiate() as GPUParticles2D
-	particle.position = get_viewport().get_mouse_position() #maybe change later
+	particle.position = global_position - Vector2(0, 50) #show effect on monster
 	particle.rotation = rotation
 	particle.emitting = true
 	get_tree().current_scene.add_child(particle)
