@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7vll6r1xmbek"]
+[gd_scene load_steps=8 format=3 uid="uid://c7vll6r1xmbek"]
 
 [ext_resource type="PackedScene" uid="uid://7w7l8yrowq8" path="res://card.tscn" id="1_jvp8r"]
 [ext_resource type="Texture2D" uid="uid://bpfh4edu1hvwl" path="res://sprites/pokemon/main-sprites/diamond-pearl/389.png" id="2_8xh7p"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dhenl4tjvem75" path="res://sprites/pokemon/main-sprites/diamond-pearl/356.png" id="5_hwkr8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhasl"]
+bg_color = Color(0.862745, 0.592157, 0.470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsafa"]
 bg_color = Color(0.556863, 0.309804, 0.121569, 1)
 
 [node name="Table" type="Control"]
@@ -17,99 +20,101 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="Panel" parent="."]
+[node name="Hand Background" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 324.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.00275, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_dhasl")
 
-[node name="Hand" type="HBoxContainer" parent="Background"]
+[node name="Hand" type="HBoxContainer" parent="Hand Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -356.0
-offset_top = 156.0
-offset_right = 394.0
-offset_bottom = 156.0
+offset_left = -375.0
+offset_right = 375.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 250
 
-[node name="Card2" parent="Background/Hand" instance=ExtResource("1_jvp8r")]
+[node name="Card2" parent="Hand Background/Hand" instance=ExtResource("1_jvp8r")]
 layout_mode = 2
 health = 2
 attack = 3
 
-[node name="Background" parent="Background/Hand/Card2" index="0"]
+[node name="Background" parent="Hand Background/Hand/Card2" index="0"]
 color = Color(0.121569, 0.615686, 0.478431, 1)
 
-[node name="Picture" parent="Background/Hand/Card2/Background" index="0"]
+[node name="Picture" parent="Hand Background/Hand/Card2/Background" index="0"]
 texture = ExtResource("2_8xh7p")
 
-[node name="Abillity" parent="Background/Hand/Card2/Background" index="3"]
+[node name="Abillity" parent="Hand Background/Hand/Card2/Background" index="3"]
 text = "Whenever a card gets healed by more than 2, heal 3"
 
-[node name="Card3" parent="Background/Hand" instance=ExtResource("1_jvp8r")]
+[node name="Card3" parent="Hand Background/Hand" instance=ExtResource("1_jvp8r")]
 layout_mode = 2
 health = 5
 
-[node name="Background" parent="Background/Hand/Card3" index="0"]
+[node name="Background" parent="Hand Background/Hand/Card3" index="0"]
 color = Color(0.729412, 0.498039, 0.980392, 1)
 
-[node name="Picture" parent="Background/Hand/Card3/Background" index="0"]
+[node name="Picture" parent="Hand Background/Hand/Card3/Background" index="0"]
 texture = ExtResource("4_0ew1o")
 
-[node name="Abillity" parent="Background/Hand/Card3/Background" index="3"]
+[node name="Abillity" parent="Hand Background/Hand/Card3/Background" index="3"]
 text = "While in hand, whenever a card gets healed, increase attack by 3"
 
-[node name="Card4" parent="Background/Hand" instance=ExtResource("1_jvp8r")]
+[node name="Card4" parent="Hand Background/Hand" instance=ExtResource("1_jvp8r")]
 layout_mode = 2
 health = 13
 attack = 2
 
-[node name="Background" parent="Background/Hand/Card4" index="0"]
+[node name="Background" parent="Hand Background/Hand/Card4" index="0"]
 color = Color(0.686275, 0.247059, 0.243137, 1)
 
-[node name="Picture" parent="Background/Hand/Card4/Background" index="0"]
+[node name="Picture" parent="Hand Background/Hand/Card4/Background" index="0"]
 texture = ExtResource("5_hwkr8")
 
-[node name="Abillity" parent="Background/Hand/Card4/Background" index="3"]
+[node name="Abillity" parent="Hand Background/Hand/Card4/Background" index="3"]
 text = "If this card gets damaged by 5 or more points, destroy the other card"
 
-[node name="Card" parent="Background/Hand" instance=ExtResource("1_jvp8r")]
+[node name="Card" parent="Hand Background/Hand" instance=ExtResource("1_jvp8r")]
 layout_mode = 2
 health = 5
 attack = 4
 
-[node name="Picture" parent="Background/Hand/Card/Background" index="0"]
+[node name="Picture" parent="Hand Background/Hand/Card/Background" index="0"]
 texture = ExtResource("2_r5l4f")
 
-[node name="Abillity" parent="Background/Hand/Card/Background" index="3"]
+[node name="Abillity" parent="Hand Background/Hand/Card/Background" index="3"]
 text = "Whenever a card gets damaged, heal 1"
 
-[node name="Board" type="HBoxContainer" parent="Background"]
+[node name="Board Background" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 324.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jsafa")
+
+[node name="Board" type="HBoxContainer" parent="Board Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -356.0
-offset_top = -164.0
-offset_right = 394.0
-offset_bottom = -164.0
+offset_left = -375.0
+offset_right = 375.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 250
 
-[editable path="Background/Hand/Card2"]
-[editable path="Background/Hand/Card3"]
-[editable path="Background/Hand/Card4"]
-[editable path="Background/Hand/Card"]
+[editable path="Hand Background/Hand/Card2"]
+[editable path="Hand Background/Hand/Card3"]
+[editable path="Hand Background/Hand/Card4"]
+[editable path="Hand Background/Hand/Card"]

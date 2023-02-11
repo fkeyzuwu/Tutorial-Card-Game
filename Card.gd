@@ -82,7 +82,7 @@ func find_card_under_mouse() -> Card:
 		return null
 	
 func switch_container(container_name: String):
-	var container = get_parent().get_parent().get_node(container_name)
+	var container = get_tree().current_scene.find_child(container_name)
 	reparent(container, false)
 	
 func recieve_heal(amount: int):
