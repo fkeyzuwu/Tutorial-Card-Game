@@ -5,6 +5,7 @@ func add_listener(event_type: GDScript, method: Callable):
 	
 	if(!has_user_signal(event_name)):
 		add_user_signal(event_name, [{ "name": "event_args", "type": TYPE_OBJECT }])
+	
 		
 	connect(event_name, method)
 
