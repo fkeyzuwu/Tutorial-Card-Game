@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://duhlawvb18eo1"]
+[gd_scene load_steps=11 format=3 uid="uid://c7vll6r1xmbek"]
 
 [ext_resource type="PackedScene" uid="uid://7w7l8yrowq8" path="res://Pokemon Cards/card.tscn" id="1_jvp8r"]
 [ext_resource type="Texture2D" uid="uid://bpfh4edu1hvwl" path="res://sprites/pokemon/main-sprites/diamond-pearl/389.png" id="2_8xh7p"]
