@@ -59,34 +59,22 @@ func _on_gui_input(event: InputEvent) -> void:
 			
 	if state == CardState.Board:
 		if event.is_action_pressed("mouse_left") and !is_healing:
-			print("start attack")
 			is_attacking = true
 		elif event.is_action_pressed("mouse_right") and !is_attacking:
-			print("start heal")
 			is_healing = true
 		elif event.is_action_released("mouse_left") and !is_healing:
-			print("end attack")
 			var card = find_card_under_mouse()
 			if card != null:
 				card.health -= self.attack
-				var damage_event = DamageEvent.new()
-				damage_event.damage_amount = self.attack
-				damage_event.damaged_card = card
-				damage_event.damaging_card = self
+				var damage_event = DamageEvent.new(self.attack, card, self)
 				EventManager.invoke_event(damage_event)
-				print("card " + card.name + " took " + str(self.attack) + " damage")
 			is_attacking = false
 		elif event.is_action_released("mouse_right") and !is_attacking:
-			print("end heal")
 			var card = find_card_under_mouse()
 			if card != null:
 				card.health += self.health
-				var heal_event = HealEvent.new()
-				heal_event.heal_amount = self.health
-				heal_event.healed_card = card
-				heal_event.healing_card = self
+				var heal_event = HealEvent.new(self.health, card, self)
 				EventManager.invoke_event(heal_event)
-				print("card " + card.name + " healed " + str(self.health) + " health")
 			is_healing = false
 
 func find_card_under_mouse() -> Card:
@@ -106,11 +94,9 @@ func find_card_under_mouse() -> Card:
 		else:
 			return card
 	else:
-		print("collision is empty")
 		return null
 	
 func switch_container(container_name: String):
-	var container = get_parent().get_parent().get_node(container_name)
+	var container = get_tree().current_scene.find_child(container_name)
 	reparent(container, false)
-	print("switched card to " + container_name)
 	

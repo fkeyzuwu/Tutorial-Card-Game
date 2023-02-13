@@ -12,6 +12,8 @@ anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_enmrx")
+health = null
+attack = null
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
