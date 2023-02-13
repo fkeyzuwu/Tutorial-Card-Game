@@ -65,16 +65,12 @@ func _on_gui_input(event: InputEvent) -> void:
 		elif event.is_action_released("mouse_left") and !is_healing:
 			var card = find_card_under_mouse()
 			if card != null:
-				card.health -= self.attack
-				var damage_event = DamageEvent.new(self.attack, card, self)
-				EventManager.invoke_event(damage_event)
+				damage_card(card)
 			is_attacking = false
 		elif event.is_action_released("mouse_right") and !is_attacking:
 			var card = find_card_under_mouse()
 			if card != null:
-				card.health += self.health
-				var heal_event = HealEvent.new(self.health, card, self)
-				EventManager.invoke_event(heal_event)
+				heal_card(card)
 			is_healing = false
 
 func find_card_under_mouse() -> Card:
@@ -99,4 +95,13 @@ func find_card_under_mouse() -> Card:
 func switch_container(container_name: String):
 	var container = get_tree().current_scene.find_child(container_name)
 	reparent(container, false)
+
+func damage_card(card: Card):
+	card.health -= self.attack
+	var damage_event = DamageEvent.new(self.attack, card, self)
+	EventManager.invoke_event(damage_event)
 	
+func heal_card(card: Card):
+	card.health += self.health
+	var heal_event = HealEvent.new(self.health, card, self)
+	EventManager.invoke_event(heal_event)
