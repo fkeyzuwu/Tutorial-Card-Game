@@ -49,7 +49,6 @@ func update_card_data(_card_data: CardData):
 
 var state: CardState = CardState.None:
 	set(value):
-		print("Card state is " + str(CardState.Hand))
 		for ability in card_data.abilities:
 			ability.card = self
 			for condition in ability.conditions:
