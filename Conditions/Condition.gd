@@ -1,7 +1,7 @@
 class_name Condition extends Resource
 
 var ability: Ability
-var is_met: bool
+var is_met: bool = false
 @export var listen_states: Array[Card.CardState] = [Card.CardState.Board]
 
 func handle_listening(current_state: Card.CardState, next_state: Card.CardState):

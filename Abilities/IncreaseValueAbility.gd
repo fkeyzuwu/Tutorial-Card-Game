@@ -5,8 +5,13 @@ class_name IncreaseValueAbility extends Ability
 @export var amount: int
 
 func activate(event: Event):
-	if is_activatable:
-		if ability_type == AbilityType.IntFlat:
+	if !is_activatable():
+		return
+	
+	set_target(event)
+	
+	if ability_type == AbilityType.IntFlat:
 			card.set(value_name, card.get(value_name) + amount)
-		elif ability_type == AbilityType.IntEvent:
-			card.set(value_name, card.get(value_name + event.amount))
+	elif ability_type == AbilityType.IntEvent:
+		card.set(value_name, card.get(value_name + event.amount))
+		

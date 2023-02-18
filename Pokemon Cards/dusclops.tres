@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="CardData" load_steps=9 format=3 uid="uid://cec2aoyhf7f05"]
 
 [ext_resource type="Script" path="res://Conditions/DamageValueCondition.gd" id="1_od17t"]
-[ext_resource type="Script" path="res://Abilities/DamageAbility.gd" id="1_sixkq"]
 [ext_resource type="Script" path="res://CardData.gd" id="1_w1t5y"]
 [ext_resource type="Script" path="res://Abilities/DestroyAbility.gd" id="2_hc047"]
+[ext_resource type="Script" path="res://Event Classes/DamageEvent.gd" id="2_x4m1d"]
 [ext_resource type="Script" path="res://Targets/Target.gd" id="3_63i4a"]
 
 [sub_resource type="Resource" id="Resource_3j66w"]
 script = ExtResource("1_od17t")
-value_needed = 5
+value = 5
 operator = 3
 listen_states = [2]
 
@@ -19,10 +19,10 @@ target_type = 1
 [sub_resource type="Resource" id="Resource_mjbpq"]
 script = ExtResource("2_hc047")
 target = SubResource("Resource_qd3j7")
-event_triggers = Array[GDScript]([ExtResource("1_sixkq")])
+event_triggers = Array[GDScript]([ExtResource("2_x4m1d")])
 ability_type = 1
 activation_type = 0
-activation_states = Array[int]([2])
+activation_states = [2]
 conditions = Array[Resource("res://Conditions/Condition.gd")]([SubResource("Resource_3j66w")])
 
 [resource]

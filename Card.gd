@@ -13,6 +13,9 @@ class_name Card extends Control
 @export var health: int:
 	set(value):
 		health = value
+		if health <= 0:
+			kill_card()
+		
 		if not is_inside_tree():
 			await ready
 		health_text.text = str(health)

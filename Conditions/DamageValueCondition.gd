@@ -1,6 +1,6 @@
 class_name DamageValueCondition extends Condition
 
-@export var value_needed: = 1
+@export var value = 1
 @export var operator := Operator.MoreThanOrEqual
 
 enum Operator {
@@ -22,12 +22,12 @@ func on_condition_event_triggered(event: Event):
 	
 	match operator:
 		Operator.LessThan:
-			is_met = value_needed < damage_event.amount
+			is_met = value > damage_event.amount
 		Operator.LessThanOrEqual:
-			is_met = value_needed <= damage_event.amount
+			is_met = value >= damage_event.amount
 		Operator.MoreThan:
-			is_met = value_needed > damage_event.amount
+			is_met = value < damage_event.amount
 		Operator.MoreThanOrEqual:
-			is_met = value_needed >= damage_event.amount
+			is_met = value <= damage_event.amount
 		Operator.Equal:
-			is_met = value_needed == damage_event.amount
+			is_met = value == damage_event.amount
