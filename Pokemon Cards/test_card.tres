@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://dusnwewtf4y8f"]
-
-[ext_resource type="Script" path="res://CardData.gd" id="1_j7ovd"]
-
-[resource]
-script = ExtResource("1_j7ovd")
-health = 5
-attack = 3
-abilities = Array[Resource("res://Abilities/Ability.gd")]([])
