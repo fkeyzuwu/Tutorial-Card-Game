@@ -13,6 +13,16 @@ signal card_data_changed(card_data: CardData)
 		attack = value
 		card_data_changed.emit(self)	
 		
+@export_multiline var description := "Card does something very cool!":
+	set(value):
+		description = value
+		card_data_changed.emit(self)
+			
+@export var texture := load("res://sprites/pokemon/main-sprites/diamond-pearl/374.png") as Texture2D:
+	set(value):
+		texture = value
+		card_data_changed.emit(self)
+		
 @export var abilities: Array[Ability]
 
 func print_card():

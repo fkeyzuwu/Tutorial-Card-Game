@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=9 format=3 uid="uid://b4h7fu5fefrde"]
+[gd_resource type="Resource" script_class="CardData" load_steps=10 format=3 uid="uid://b4h7fu5fefrde"]
 
 [ext_resource type="Script" path="res://Conditions/SpecificCardCondition.gd" id="1_g438b"]
 [ext_resource type="Script" path="res://Event Classes/HealEvent.gd" id="1_t4ib6"]
 [ext_resource type="Script" path="res://CardData.gd" id="1_ye16c"]
 [ext_resource type="Script" path="res://Abilities/HealAbility.gd" id="2_qfrso"]
 [ext_resource type="Script" path="res://Targets/Target.gd" id="3_bpxip"]
+[ext_resource type="Texture2D" uid="uid://bpfh4edu1hvwl" path="res://sprites/pokemon/main-sprites/diamond-pearl/389.png" id="6_ftmg0"]
 
 [sub_resource type="Resource" id="Resource_lc5q7"]
 script = ExtResource("1_g438b")
@@ -29,4 +30,6 @@ conditions = Array[Resource("res://Conditions/Condition.gd")]([SubResource("Reso
 script = ExtResource("1_ye16c")
 health = 5
 attack = 3
+description = "Whenever another card gets healed, heal self for same amount"
+texture = ExtResource("6_ftmg0")
 abilities = Array[Resource("res://Abilities/Ability.gd")]([SubResource("Resource_o3qoe")])

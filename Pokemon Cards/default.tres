@@ -7,6 +7,6 @@
 script = ExtResource("1_vfejs")
 health = 1
 attack = 1
-description = ""
+description = "adfadf"
 texture = ExtResource("2_c544n")
 abilities = Array[Resource("res://Abilities/Ability.gd")]([])

@@ -1,8 +1,10 @@
 @tool
 class_name Card extends Control
 
-@onready var health_text = $Background/Health as Label
-@onready var attack_text = $Background/Attack as Label
+@onready var health_text: Label = %Health
+@onready var attack_text: Label = %Attack
+@onready var picture: TextureRect = %Picture
+@onready var description: Label = %Description
 
 @export var card_data: CardData:
 	set(value):
@@ -34,9 +36,11 @@ func _ready() -> void:
 	state = CardState.Hand
 		
 
-func update_card_data(_card_data):
+func update_card_data(_card_data: CardData):
 	health = _card_data.health
 	attack = _card_data.attack
+	picture.texture = _card_data.texture
+	description.text = _card_data.description
 
 var state: CardState = CardState.None:
 	set(value):

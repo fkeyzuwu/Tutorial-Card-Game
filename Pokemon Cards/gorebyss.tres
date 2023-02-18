@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://kmfi2dcyd7ij"]
+[gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://kmfi2dcyd7ij"]
 
 [ext_resource type="Script" path="res://CardData.gd" id="1_7lhmj"]
 [ext_resource type="Script" path="res://Event Classes/HealEvent.gd" id="1_pud8h"]
 [ext_resource type="Script" path="res://Abilities/IncreaseValueAbility.gd" id="2_ql6bn"]
 [ext_resource type="Script" path="res://Targets/Target.gd" id="3_bnhjs"]
+[ext_resource type="Texture2D" uid="uid://c7ejdsn1pumrp" path="res://sprites/pokemon/main-sprites/diamond-pearl/368.png" id="5_gqkkb"]
 
 [sub_resource type="Resource" id="Resource_hsfyi"]
 script = ExtResource("3_bnhjs")
@@ -24,4 +25,6 @@ conditions = Array[Resource("res://Conditions/Condition.gd")]([])
 script = ExtResource("1_7lhmj")
 health = 5
 attack = 1
+description = "While in hand, whenever a card gets healed, increase attack by 3"
+texture = ExtResource("5_gqkkb")
 abilities = Array[Resource("res://Abilities/Ability.gd")]([SubResource("Resource_0e5ao")])

@@ -52,14 +52,14 @@ script = ExtResource("1_2slpv")
 [node name="Card" parent="Background/Hand" instance=ExtResource("1_jvp8r")]
 layout_mode = 2
 card_data = ExtResource("4_woluc")
-health = 6
+health = 7
 attack = 4
 
 [node name="Picture" parent="Background/Hand/Card/Background" index="0"]
 texture = ExtResource("2_r5l4f")
 
 [node name="Health" parent="Background/Hand/Card/Background" index="1"]
-text = "6"
+text = "7"
 
 [node name="Attack" parent="Background/Hand/Card/Background" index="2"]
 text = "4"
