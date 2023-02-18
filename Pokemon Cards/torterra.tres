@@ -32,4 +32,5 @@ health = 5
 attack = 3
 description = "Whenever another card gets healed, heal self for same amount"
 texture = ExtResource("6_ftmg0")
+background_color = Color(0.2, 0.682353, 0.419608, 1)
 abilities = Array[Resource("res://Abilities/Ability.gd")]([SubResource("Resource_o3qoe")])

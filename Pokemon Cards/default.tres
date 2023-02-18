@@ -7,6 +7,7 @@
 script = ExtResource("1_vfejs")
 health = 1
 attack = 1
-description = "adfadf"
+description = "Card does something very cool!"
 texture = ExtResource("2_c544n")
+background_color = Color(0.176471, 0.176471, 0.176471, 1)
 abilities = Array[Resource("res://Abilities/Ability.gd")]([])

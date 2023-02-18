@@ -4,13 +4,17 @@ class_name Card extends Control
 @onready var health_text: Label = %Health
 @onready var attack_text: Label = %Attack
 @onready var picture: TextureRect = %Picture
+@onready var background_color: ColorRect = %Background
 @onready var description: Label = %Description
 
 @export var card_data: CardData:
 	set(value):
 		card_data = value
+		if not is_inside_tree():
+			await ready
 		update_card_data(card_data)
-		card_data.card_data_changed.connect(update_card_data)
+		if !card_data.card_data_changed.is_connected(update_card_data):
+			card_data.card_data_changed.connect(update_card_data)
 
 @export var health: int:
 	set(value):
@@ -40,6 +44,7 @@ func update_card_data(_card_data: CardData):
 	health = _card_data.health
 	attack = _card_data.attack
 	picture.texture = _card_data.texture
+	background_color.color = _card_data.background_color
 	description.text = _card_data.description
 
 var state: CardState = CardState.None:

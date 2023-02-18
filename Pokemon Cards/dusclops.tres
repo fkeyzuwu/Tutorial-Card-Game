@@ -32,4 +32,5 @@ health = 12
 attack = 2
 description = "If this card gets damaged by 5 or more points, destroy the other card"
 texture = ExtResource("6_n7roq")
+background_color = Color(0.145098, 0.270588, 0.34902, 1)
 abilities = Array[Resource("res://Abilities/Ability.gd")]([SubResource("Resource_mjbpq")])

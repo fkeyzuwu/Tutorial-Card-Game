@@ -22,6 +22,11 @@ signal card_data_changed(card_data: CardData)
 	set(value):
 		texture = value
 		card_data_changed.emit(self)
+
+@export var background_color := Color.DARK_GRAY:
+	set(value):
+		background_color = value
+		card_data_changed.emit(self)
 		
 @export var abilities: Array[Ability]
 

@@ -26,4 +26,5 @@ health = 7
 attack = 4
 description = "Whenever a card gets damaged, heal 1"
 texture = ExtResource("5_iag6l")
+background_color = Color(0.113725, 0.541176, 0.556863, 1)
 abilities = Array[Resource("res://Abilities/Ability.gd")]([SubResource("Resource_bmmqp")])
