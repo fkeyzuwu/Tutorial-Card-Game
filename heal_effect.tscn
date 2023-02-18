@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://x2a5txx1asp1"]
+
+[sub_resource type="Gradient" id="Gradient_brquq"]
+offsets = PackedFloat32Array(0, 0.12987, 1)
+colors = PackedColorArray(0.996946, 3.39322e-06, 1.92523e-07, 1, 0.997964, 0.333336, 0.333333, 0.666667, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qkkau"]
+gradient = SubResource("Gradient_brquq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0aipd"]
+lifetime_randomness = 0.47
+emission_shape = 2
+emission_sphere_radius = 9.94
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 37.97
+initial_velocity_max = 71.96
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 2.0
+scale_max = 5.0
+color = Color(1, 0.564706, 0.498039, 1)
+color_ramp = SubResource("GradientTexture1D_qkkau")
+
+[node name="HealEffect" type="GPUParticles2D"]
+scale = Vector2(3, 3)
+emitting = false
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_0aipd")
+lifetime = 0.3
+one_shot = true
+speed_scale = 0.75
+explosiveness = 0.1
+local_coords = true

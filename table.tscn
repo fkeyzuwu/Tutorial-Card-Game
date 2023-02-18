@@ -84,6 +84,7 @@ scale = Vector2(1.00275, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_ojtq0")
 
 [node name="Board" type="HBoxContainer" parent="BoardContainer"]
+layout_mode = 0
 theme_override_constants/separation = 250
 script = ExtResource("11_xse0u")
 
