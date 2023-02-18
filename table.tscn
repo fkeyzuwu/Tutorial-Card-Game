@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7vll6r1xmbek"]
+[gd_scene load_steps=10 format=3 uid="uid://c7vll6r1xmbek"]
 
 [ext_resource type="Script" path="res://Hand.gd" id="1_2slpv"]
 [ext_resource type="PackedScene" uid="uid://6adgg04fqb5" path="res://card.tscn" id="2_gjwtp"]
@@ -9,7 +9,10 @@
 [ext_resource type="Script" path="res://Board.gd" id="11_xse0u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhasl"]
-bg_color = Color(0.556863, 0.309804, 0.121569, 1)
+bg_color = Color(0.301961, 0.745098, 0.458824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojtq0"]
+bg_color = Color(0.647059, 0.364706, 0.152941, 1)
 
 [node name="Table" type="Control"]
 layout_mode = 3
@@ -19,17 +22,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="Panel" parent="."]
+[node name="HandContainer" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00275, 1)
 theme_override_styles/panel = SubResource("StyleBoxFlat_dhasl")
 
-[node name="Hand" type="HBoxContainer" parent="Background"]
+[node name="Hand" type="HBoxContainer" parent="HandContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,43 +41,53 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -576.0
-offset_top = 16.0
+offset_top = -162.0
 offset_right = 174.0
-offset_bottom = 16.0
+offset_bottom = -162.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 250
 script = ExtResource("1_2slpv")
 
-[node name="Card" parent="Background/Hand" instance=ExtResource("2_gjwtp")]
+[node name="Card" parent="HandContainer/Hand" instance=ExtResource("2_gjwtp")]
 layout_mode = 2
 card_data = ExtResource("4_woluc")
 health = 7
 attack = 4
 
-[node name="Card2" parent="Background/Hand" instance=ExtResource("2_gjwtp")]
+[node name="Card2" parent="HandContainer/Hand" instance=ExtResource("2_gjwtp")]
 layout_mode = 2
 card_data = ExtResource("5_l1ofw")
 health = 5
 attack = 3
 
-[node name="Card3" parent="Background/Hand" instance=ExtResource("2_gjwtp")]
+[node name="Card3" parent="HandContainer/Hand" instance=ExtResource("2_gjwtp")]
 layout_mode = 2
 card_data = ExtResource("7_v6hvi")
 health = 5
 
-[node name="Card4" parent="Background/Hand" instance=ExtResource("2_gjwtp")]
+[node name="Card4" parent="HandContainer/Hand" instance=ExtResource("2_gjwtp")]
 layout_mode = 2
 card_data = ExtResource("9_dkh10")
 health = 12
 attack = 2
 
-[node name="Board" type="HBoxContainer" parent="Background"]
+[node name="BoardContainer" type="Panel" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00275, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ojtq0")
+
+[node name="Board" type="HBoxContainer" parent="BoardContainer"]
 theme_override_constants/separation = 250
 script = ExtResource("11_xse0u")
 
-[connection signal="child_entered_tree" from="Background/Hand" to="Background/Hand" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Background/Hand" to="Background/Hand" method="_on_child_exiting_tree"]
-[connection signal="child_entered_tree" from="Background/Board" to="Background/Board" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Background/Board" to="Background/Board" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="HandContainer/Hand" to="HandContainer/Hand" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="HandContainer/Hand" to="HandContainer/Hand" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="BoardContainer/Board" to="BoardContainer/Board" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="BoardContainer/Board" to="BoardContainer/Board" method="_on_child_exiting_tree"]
