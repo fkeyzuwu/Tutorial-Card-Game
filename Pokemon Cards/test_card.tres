@@ -1,29 +1,9 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://dusnwewtf4y8f"]
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://dusnwewtf4y8f"]
 
-[ext_resource type="Script" path="res://Conditions/MonstersOnBoardCondition.gd" id="1_0o76k"]
-[ext_resource type="Script" path="res://Abilities/DamageAbility.gd" id="1_avvta"]
 [ext_resource type="Script" path="res://CardData.gd" id="1_j7ovd"]
-
-[sub_resource type="Resource" id="Resource_xgpn5"]
-script = ExtResource("1_0o76k")
-amount_needed = 3
-
-[sub_resource type="Resource" id="Resource_m0nir"]
-script = ExtResource("1_0o76k")
-amount_needed = 3
-
-[sub_resource type="Resource" id="Resource_qh2fq"]
-script = ExtResource("1_avvta")
-amount = 0
-conditions = Array[Resource("res://Conditions/Condition.gd")]([SubResource("Resource_xgpn5"), SubResource("Resource_m0nir")])
-
-[sub_resource type="Resource" id="Resource_dd50f"]
-script = ExtResource("1_avvta")
-amount = 0
-conditions = Array[Resource("res://Conditions/Condition.gd")]([])
 
 [resource]
 script = ExtResource("1_j7ovd")
-health = 1
+health = 5
 attack = 3
-abilities = Array[Resource("res://Abilities/Ability.gd")]([SubResource("Resource_qh2fq"), SubResource("Resource_dd50f")])
+abilities = Array[Resource("res://Abilities/Ability.gd")]([])

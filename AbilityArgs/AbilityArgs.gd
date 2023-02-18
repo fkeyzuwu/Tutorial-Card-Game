@@ -1,0 +1,1 @@
+class_name AbilityArgs extends RefCounted

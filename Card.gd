@@ -1,61 +1,70 @@
+@tool
 class_name Card extends Control
 
 @onready var health_text = $Background/Health as Label
 @onready var attack_text = $Background/Attack as Label
 
-@export var health := 1:
+@export var card_data: CardData:
+	set(value):
+		card_data = value
+		update_card_data(card_data)
+		card_data.card_data_changed.connect(update_card_data)
+
+@export var health: int:
 	set(value):
 		health = value
-		if health <= 0:
-			queue_free()
-		if health_text != null:
-			health_text.text = str(health)
-@export var attack := 1:
+		if not is_inside_tree():
+			await ready
+		health_text.text = str(health)
+		
+@export var attack: int:
 	set(value):
 		attack = value
-		if attack_text != null:
-			attack_text.text = str(attack)
+		if not is_inside_tree():
+			await ready
+		attack_text.text = str(attack)
 
 func _ready() -> void:
-	health_text.text = str(health)
-	attack_text.text = str(attack)
+	if card_data == null:
+		return
+	
+	state = CardState.Hand
+	
+	for ability in card_data.abilities:
+		ability.card = self
 
-var state: CardState = CardState.Hand:
+func update_card_data(_card_data):
+	health = _card_data.health
+	attack = _card_data.attack
+
+var state: CardState = CardState.None:
 	set(value):
+		print("Card state is " + str(CardState.Hand))
+		for ability in card_data.abilities:
+			ability.handle_listening(state, value)
+			for condition in ability.conditions:
+				condition.handle_listening(state, value)
 		state = value
-		if ability_state == state:
-			connect_ability()
-		else:
-			disconnect_ability()
-			
-			
-var ability_state: CardState = CardState.Board
 
 var is_attacking := false
 var is_healing := false
 
 enum CardState {
+	None,
 	Hand,
 	Board
 }
-
-func activate_ability(event: Event): #override for each invidiual card
-	pass
-
-func connect_ability(): #override for each invidiual card
-	pass
-	
-func disconnect_ability(): #override for each invidiual card
-	pass
 
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("mouse_middle"):
 		if state == CardState.Hand:
 			state = CardState.Board
 			switch_container("Board")
+			EventManager.invoke_event(MonsterPlayedEvent.new(self))
 		else:
 			state = CardState.Hand
 			switch_container("Hand")
+			EventManager.invoke_event(MonsterReturnToHandEvent.new(self))
 			
 	if state == CardState.Board:
 		if event.is_action_pressed("mouse_left") and !is_healing:
@@ -105,3 +114,7 @@ func heal_card(card: Card):
 	card.health += self.health
 	var heal_event = HealEvent.new(self.health, card, self)
 	EventManager.invoke_event(heal_event)
+
+func kill_card():
+	EventManager.invoke_event(MonsterDiedEvent.new(self))
+	queue_free()

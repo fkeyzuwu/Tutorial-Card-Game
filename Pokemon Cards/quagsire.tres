@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=7 format=3 uid="uid://vq1nx8m5emk0"]
+
+[ext_resource type="Script" path="res://Abilities/HealAbility.gd" id="1_4wv1m"]
+[ext_resource type="Script" path="res://Event Classes/DamageEvent.gd" id="1_mrdvj"]
+[ext_resource type="Script" path="res://CardData.gd" id="1_rbcht"]
+[ext_resource type="Script" path="res://Targets/Target.gd" id="3_j4vb5"]
+
+[sub_resource type="Resource" id="Resource_i0lbg"]
+script = ExtResource("3_j4vb5")
+target_type = 0
+
+[sub_resource type="Resource" id="Resource_bmmqp"]
+script = ExtResource("1_4wv1m")
+amount = 1
+target = SubResource("Resource_i0lbg")
+event_triggers = Array[GDScript]([ExtResource("1_mrdvj")])
+ability_type = 0
+activation_type = 0
+activation_states = [2]
+conditions = Array[Resource("res://Conditions/Condition.gd")]([])
+
+[resource]
+script = ExtResource("1_rbcht")
+health = 6
+attack = 4
+abilities = Array[Resource("res://Abilities/Ability.gd")]([SubResource("Resource_bmmqp")])

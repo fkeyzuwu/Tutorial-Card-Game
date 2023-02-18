@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceryah80p4cxq"]
+[gd_scene load_steps=5 format=3 uid="uid://ceryah80p4cxq"]
 
 [ext_resource type="Script" path="res://Card.gd" id="1_enmrx"]
+[ext_resource type="Resource" uid="uid://dusnwewtf4y8f" path="res://Pokemon Cards/test_card.tres" id="2_h1dlo"]
 [ext_resource type="FontFile" uid="uid://rxc8di7fpovr" path="res://fonts/NotoSans-Regular.ttf" id="2_opbve"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf0h6"]
@@ -12,8 +13,9 @@ anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_enmrx")
-health = null
-attack = null
+card_data = ExtResource("2_h1dlo")
+health = 5
+attack = 3
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -59,7 +61,7 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_opbve")
 theme_override_font_sizes/font_size = 36
-text = "1"
+text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -75,7 +77,7 @@ scale = Vector2(1.00172, 1)
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("2_opbve")
 theme_override_font_sizes/font_size = 36
-text = "1"
+text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
