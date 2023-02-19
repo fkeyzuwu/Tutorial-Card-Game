@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://x2a5txx1asp1"]
+[gd_scene load_steps=5 format=3 uid="uid://x2a5txx1asp1"]
+
+[ext_resource type="Script" path="res://ParticleEffect.gd" id="1_t3t6b"]
 
 [sub_resource type="Gradient" id="Gradient_brquq"]
 offsets = PackedFloat32Array(0, 0.12987, 1)
@@ -33,3 +35,4 @@ one_shot = true
 speed_scale = 0.75
 explosiveness = 0.1
 local_coords = true
+script = ExtResource("1_t3t6b")
