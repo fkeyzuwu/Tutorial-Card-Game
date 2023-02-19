@@ -141,7 +141,7 @@ func kill_card():
 
 func spawn_particle(particle_effect: PackedScene):
 	var particle = particle_effect.instantiate() as GPUParticles2D
-	particle.position = get_global_mouse_position()
+	particle.position = position + $Background.size / 2
 	particle.rotation = rotation
 	particle.emitting = true
 	get_tree().current_scene.add_child(particle)

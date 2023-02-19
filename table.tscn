@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7vll6r1xmbek"]
+[gd_scene load_steps=11 format=3 uid="uid://c7vll6r1xmbek"]
 
 [ext_resource type="Script" path="res://Hand.gd" id="1_2slpv"]
 [ext_resource type="PackedScene" uid="uid://6adgg04fqb5" path="res://card.tscn" id="2_gjwtp"]
+[ext_resource type="Texture2D" uid="uid://cyo70l5oijilq" path="res://sprites/pokemon/main-sprites/diamond-pearl/195.png" id="4_g8wwd"]
 [ext_resource type="Resource" uid="uid://vq1nx8m5emk0" path="res://Pokemon Cards/quagsire.tres" id="4_woluc"]
 [ext_resource type="Resource" uid="uid://b4h7fu5fefrde" path="res://Pokemon Cards/torterra.tres" id="5_l1ofw"]
 [ext_resource type="Resource" uid="uid://kmfi2dcyd7ij" path="res://Pokemon Cards/gorebyss.tres" id="7_v6hvi"]
@@ -55,6 +56,21 @@ card_data = ExtResource("4_woluc")
 health = 7
 attack = 4
 
+[node name="Background" parent="HandContainer/Hand/Card" index="0"]
+color = Color(0.113725, 0.541176, 0.556863, 1)
+
+[node name="Picture" parent="HandContainer/Hand/Card/Background" index="0"]
+texture = ExtResource("4_g8wwd")
+
+[node name="Health" parent="HandContainer/Hand/Card/Background" index="1"]
+text = "7"
+
+[node name="Attack" parent="HandContainer/Hand/Card/Background" index="2"]
+text = "4"
+
+[node name="Description" parent="HandContainer/Hand/Card/Background" index="3"]
+text = "Whenever a card gets damaged, heal 1"
+
 [node name="Card2" parent="HandContainer/Hand" instance=ExtResource("2_gjwtp")]
 layout_mode = 2
 card_data = ExtResource("5_l1ofw")
@@ -92,3 +108,5 @@ script = ExtResource("11_xse0u")
 [connection signal="child_exiting_tree" from="HandContainer/Hand" to="HandContainer/Hand" method="_on_child_exiting_tree"]
 [connection signal="child_entered_tree" from="BoardContainer/Board" to="BoardContainer/Board" method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="BoardContainer/Board" to="BoardContainer/Board" method="_on_child_exiting_tree"]
+
+[editable path="HandContainer/Hand/Card"]
