@@ -35,6 +35,7 @@ func set_target(event: Event): #later should set array of cards
 	match target.target_type:
 		Target.TargetType.Self:
 			target.card = card
+			return
 		Target.TargetType.ActionCard:
 			for property in event.get_property_list():
 				if property.name == "actioned_card":
@@ -47,9 +48,8 @@ func set_target(event: Event): #later should set array of cards
 					target.card = event.affected_card
 					return
 			print("couldnt find property of affected_card")	
-			
-	print("couldn't get a target")
 	
+	print("couldn't find target")
 	
 func handle_listening(current_state: Card.CardState, next_state: Card.CardState):
 	if activation_states.has(next_state):
