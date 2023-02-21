@@ -8,10 +8,10 @@ var card_resources: Array[CardData] #for flipping pages nshit
 @onready var card_book: GridContainer = %CardBook
 @onready var deck: ItemList = %Deck
 
-# using this because i need index for items list 
+# using this because i need index for items list
 # +key value pair for card name + amount
 
-var current_book_cards: Dictionary
+var current_book_cards: Dictionary = {}
 var current_deck: Dictionary = {}
 
 func _ready() -> void:
@@ -50,7 +50,6 @@ func _on_deck_card_clicked(index: int, at_position: Vector2, mouse_button_index:
 		current_deck.erase(card_name)
 		
 	refersh_deck_list_ui()
-	#move card back to card list
 
 func refersh_deck_list_ui():
 	deck.clear()
@@ -59,3 +58,9 @@ func refersh_deck_list_ui():
 		var card_name = keys[i]
 		var card_amount = str(current_deck[card_name])
 		deck.add_item(card_amount + "x " + card_name)
+
+
+func _on_tree_exiting() -> void:
+	var deck_resource = Deck.new()
+	deck_resource.cards = current_deck
+	ResourceSaver.save(deck_resource, "res://DeckBuilder/Decks/deck.tres")

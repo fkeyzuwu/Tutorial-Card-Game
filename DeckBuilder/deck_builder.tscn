@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://birm8d1wfxpdm"]
+[gd_scene load_steps=6 format=3 uid="uid://birm8d1wfxpdm"]
 
 [ext_resource type="Script" path="res://DeckBuilder/DeckBuilder.gd" id="1_5ijbu"]
 [ext_resource type="PackedScene" uid="uid://wtr6bdn7o4m4" path="res://deck_building_card.tscn" id="2_n0sgh"]
+[ext_resource type="Script" path="res://DeckBuilder/StartGameButton.gd" id="3_k6vq3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddqy7"]
 bg_color = Color(0.945098, 0.886275, 1, 1)
@@ -47,9 +48,25 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 269.0
+offset_bottom = -82.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.164706, 0.164706, 0.164706, 1)
 theme_override_font_sizes/font_size = 20
 theme_override_styles/panel = SubResource("StyleBoxFlat_mrbw4")
 
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -82.0
+offset_right = 269.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Start Game
+"
+script = ExtResource("3_k6vq3")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="item_clicked" from="Panel/Deck" to="." method="_on_deck_card_clicked"]
+[connection signal="pressed" from="Panel/Button" to="Panel/Button" method="_on_pressed"]

@@ -7,7 +7,6 @@ signal on_card_clicked(card: DeckBuildingCard)
 @export var amount := 2:
 	set(value):
 		amount = value
-		print("card amount updated")
 		
 		if not is_inside_tree():
 			await ready
