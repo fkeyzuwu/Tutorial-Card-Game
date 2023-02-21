@@ -4,10 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://bgt7chfplo5k3" path="res://sprites/pokemon/main-sprites/diamond-pearl/374.png" id="2_c544n"]
 
 [resource]
+resource_name = "Default"
 script = ExtResource("1_vfejs")
+name = "Default"
+description = "Card does something very cool!"
 health = 1
 attack = 1
-description = "Card does something very cool!"
 texture = ExtResource("2_c544n")
 background_color = Color(0.176419, 0.176419, 0.176419, 1)
 abilities = Array[Resource("res://Abilities/Ability.gd")]([])

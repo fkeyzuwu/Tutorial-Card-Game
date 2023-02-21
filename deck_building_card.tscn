@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=3 uid="uid://wtr6bdn7o4m4"]
+
+[ext_resource type="Script" path="res://DeckBuildingCard.gd" id="1_07qql"]
+[ext_resource type="Resource" uid="uid://rc63scdrbyim" path="res://Pokemon Cards/default.tres" id="2_eeve3"]
+[ext_resource type="Texture2D" uid="uid://bgt7chfplo5k3" path="res://sprites/pokemon/main-sprites/diamond-pearl/374.png" id="5_f03f4"]
+[ext_resource type="FontFile" uid="uid://rxc8di7fpovr" path="res://fonts/NotoSans-Regular.ttf" id="6_v0stp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lf0h6"]
+size = Vector2(200, 300)
+
+[node name="DeckBuildingCard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 300.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_07qql")
+card_data = ExtResource("2_eeve3")
+health = 1
+attack = 1
+
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 300.0
+mouse_filter = 1
+color = Color(0.176419, 0.176419, 0.176419, 1)
+
+[node name="Picture" type="TextureRect" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.317
+anchor_right = 0.5
+anchor_bottom = 0.317
+offset_left = -65.0
+offset_top = -70.1
+offset_right = 63.0
+offset_bottom = 57.9
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_f03f4")
+
+[node name="Amount" type="Label" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -44.0
+offset_right = 20.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_v0stp")
+theme_override_font_sizes/font_size = 26
+text = "2x"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="Label" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_v0stp")
+theme_override_font_sizes/font_size = 36
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack" type="Label" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+scale = Vector2(1.00172, 1)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_v0stp")
+theme_override_font_sizes/font_size = 36
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Background"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -10.0
+offset_right = 95.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.972549, 0.945098, 1, 1)
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("6_v0stp")
+theme_override_font_sizes/font_size = 18
+text = "Card does something very cool!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Area2D" type="Area2D" parent="Background"]
+visible = false
+position = Vector2(100, 150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Area2D"]
+shape = SubResource("RectangleShape2D_lf0h6")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

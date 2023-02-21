@@ -22,10 +22,12 @@ activation_states = [1]
 conditions = Array[Resource("res://Conditions/Condition.gd")]([])
 
 [resource]
+resource_name = "Gorebyss"
 script = ExtResource("1_7lhmj")
+name = "Gorebyss"
+description = "While in hand, whenever a card gets healed, increase attack by 3"
 health = 5
 attack = 1
-description = "While in hand, whenever a card gets healed, increase attack by 3"
 texture = ExtResource("5_gqkkb")
 background_color = Color(0.345098, 0.47451, 0.854902, 1)
 abilities = Array[Resource("res://Abilities/Ability.gd")]([SubResource("Resource_0e5ao")])
