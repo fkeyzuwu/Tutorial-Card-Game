@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://dpmuwoe54iaf0"]
+
+[ext_resource type="Script" path="res://CardData.gd" id="1_6mwv7"]
+[ext_resource type="Texture2D" uid="uid://bgt7chfplo5k3" path="res://sprites/pokemon/main-sprites/diamond-pearl/374.png" id="2_hd8b0"]
+
+[resource]
+resource_name = "Wooper"
+script = ExtResource("1_6mwv7")
+name = "Wooper"
+description = "woop"
+health = 1
+attack = 1
+texture = ExtResource("2_hd8b0")
+background_color = Color(0.662745, 0.662745, 0.662745, 1)
+abilities = Array[Resource("res://Abilities/Ability.gd")]([])

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://lqcrrmqlvcvl"]
+
+[ext_resource type="Script" path="res://CardData.gd" id="1_va7l4"]
+[ext_resource type="Texture2D" uid="uid://bgt7chfplo5k3" path="res://sprites/pokemon/main-sprites/diamond-pearl/374.png" id="2_ohtwu"]
+
+[resource]
+resource_name = "Jirachi"
+script = ExtResource("1_va7l4")
+name = "Jirachi"
+description = "jirch jirch"
+health = 1
+attack = 1
+texture = ExtResource("2_ohtwu")
+background_color = Color(0.662745, 0.662745, 0.662745, 1)
+abilities = Array[Resource("res://Abilities/Ability.gd")]([])

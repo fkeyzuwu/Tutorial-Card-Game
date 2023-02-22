@@ -4,7 +4,7 @@ class_name DeckBuildingCard extends Control
 signal on_card_clicked(card: DeckBuildingCard)
 
 #the amount of cards avaialbale
-@export var amount := 2:
+@export var amount: int:
 	set(value):
 		amount = value
 		
