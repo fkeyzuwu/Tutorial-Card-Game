@@ -13,6 +13,7 @@ func _ready() -> void:
 	for i in range(keys.size()):
 		var card_name = keys[i]
 		var card_amount = deck.cards[card_name]
-		var card = card_scene.instantiate() as Card
-		card.card_data = ResourceLoader.load(card_path + card_name)
-		hand.add_child(card)
+		for j in range(card_amount):
+			var card = card_scene.instantiate() as Card
+			card.card_data = ResourceLoader.load(card_path + card_name)
+			hand.add_child(card)
