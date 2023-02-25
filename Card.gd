@@ -1,6 +1,8 @@
 @tool
 class_name Card extends Control
 
+var card_owner: String #player or ai or the other player
+
 @onready var health_text: Label = %Health
 @onready var attack_text: Label = %Attack
 @onready var picture: TextureRect = %Picture
@@ -39,11 +41,7 @@ class_name Card extends Control
 @export var damage_particle_effect: PackedScene
 
 func _ready() -> void:
-	if card_data == null:
-		return
-	
 	state = CardState.Hand
-		
 
 func update_card_data(_card_data: CardData):
 	health = _card_data.health
@@ -74,10 +72,16 @@ enum CardState {
 }
 
 func _on_gui_input(event: InputEvent) -> void:
+	if card_owner != "Player": #later make this like the two different players??
+		return
+	
+	if GameManager.game_state != GameManager.GameState.PlayerTurn:
+		return
+	
 	if event.is_action_pressed("mouse_middle"):
 		if state == CardState.Hand:
 			state = CardState.Board
-			switch_container("Board")
+			switch_container("PlayerBoard")
 			EventManager.invoke_event(MonsterPlayedEvent.new(self))
 		else:
 			state = CardState.Hand

@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="Deck" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://DeckBuilder/Deck.gd" id="1_alp7p"]
+[ext_resource type="Script" path="res://DeckBuilder/Deck.gd" id="1_8m03b"]
 
 [resource]
-script = ExtResource("1_alp7p")
+script = ExtResource("1_8m03b")
 cards = {
+"default.tres": 1,
 "dusclops.tres": 1,
 "gorebyss.tres": 1,
 "quagsire.tres": 1,

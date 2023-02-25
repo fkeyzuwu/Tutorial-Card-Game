@@ -16,4 +16,5 @@ func _ready() -> void:
 		for j in range(card_amount):
 			var card = card_scene.instantiate() as Card
 			card.card_data = ResourceLoader.load(card_path + card_name)
+			card.card_owner = "Player"
 			hand.add_child(card)

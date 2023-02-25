@@ -21,7 +21,7 @@ grow_vertical = 2
 script = ExtResource("1_56ka5")
 card_scene = ExtResource("2_gjwtp")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="."]
+[node name="Boards" type="VSplitContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,27 +30,48 @@ grow_horizontal = 2
 grow_vertical = 2
 split_offset = 540
 
-[node name="BoardContainer" type="Panel" parent="VSplitContainer"]
+[node name="EnemyBoard" type="Panel" parent="Boards"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ojtq0")
 
-[node name="Board" type="HBoxContainer" parent="VSplitContainer/BoardContainer"]
+[node name="Board" type="HBoxContainer" parent="Boards/EnemyBoard"]
 layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 500.0
 theme_override_constants/separation = 250
 script = ExtResource("11_xse0u")
 
-[node name="HandContainer" type="Panel" parent="VSplitContainer"]
+[node name="PlayerBoard" type="Panel" parent="Boards"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dhasl")
 
-[node name="Hand" type="HBoxContainer" parent="VSplitContainer/HandContainer"]
+[node name="Board" type="HBoxContainer" parent="Boards/PlayerBoard"]
+offset_right = 1920.0
+offset_bottom = 500.0
+theme_override_constants/separation = 250
+script = ExtResource("11_xse0u")
+
+[node name="Hand" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
+top_level = true
 layout_direction = 1
 layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.246
+anchor_top = 0.791
+anchor_right = 0.246
+anchor_bottom = 0.791
+offset_left = 0.679993
+offset_top = -0.280029
+offset_right = 959.68
+offset_bottom = 225.72
+grow_horizontal = 2
 theme_override_constants/separation = 250
 script = ExtResource("1_2slpv")
 
-[connection signal="child_entered_tree" from="VSplitContainer/BoardContainer/Board" to="VSplitContainer/BoardContainer/Board" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="VSplitContainer/BoardContainer/Board" to="VSplitContainer/BoardContainer/Board" method="_on_child_exiting_tree"]
-[connection signal="child_entered_tree" from="VSplitContainer/HandContainer/Hand" to="VSplitContainer/HandContainer/Hand" method="_on_child_entered_tree"]
-[connection signal="child_exiting_tree" from="VSplitContainer/HandContainer/Hand" to="VSplitContainer/HandContainer/Hand" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Boards/EnemyBoard/Board" to="Boards/EnemyBoard/Board" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Boards/EnemyBoard/Board" to="Boards/EnemyBoard/Board" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Boards/PlayerBoard/Board" to="Boards/PlayerBoard/Board" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Boards/PlayerBoard/Board" to="Boards/PlayerBoard/Board" method="_on_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Hand" to="Hand" method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="Hand" to="Hand" method="_on_child_exiting_tree"]
