@@ -34,7 +34,7 @@ signal card_data_changed(card_data: CardData)
 		background_color = value
 		card_data_changed.emit(self)
 		
-@export var abilities: Array[Ability]
+@export var abilities: Array[Ability] = []
 
 func print_card():
 	for ability in abilities:

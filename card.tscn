@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://6adgg04fqb5"]
+[gd_scene load_steps=7 format=3 uid="uid://6adgg04fqb5"]
 
 [ext_resource type="Script" path="res://Card.gd" id="1_enmrx"]
-[ext_resource type="Resource" uid="uid://rc63scdrbyim" path="res://Pokemon Cards/default.tres" id="2_jpd4c"]
 [ext_resource type="FontFile" uid="uid://rxc8di7fpovr" path="res://fonts/NotoSans-Regular.ttf" id="2_opbve"]
 [ext_resource type="Texture2D" uid="uid://bgt7chfplo5k3" path="res://sprites/pokemon/main-sprites/diamond-pearl/374.png" id="3_8alx8"]
 [ext_resource type="PackedScene" uid="uid://x2a5txx1asp1" path="res://heal_effect.tscn" id="3_nytk6"]
@@ -12,6 +11,7 @@ size = Vector2(200, 300)
 
 [node name="Card" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 offset_left = -100.0
 offset_top = -150.0
 offset_right = 100.0
@@ -19,9 +19,7 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
 script = ExtResource("1_enmrx")
-card_data = ExtResource("2_jpd4c")
 health = 1
 attack = 1
 heal_particle_effect = ExtResource("3_nytk6")
@@ -116,5 +114,3 @@ position = Vector2(100, 150)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Area2D"]
 shape = SubResource("RectangleShape2D_lf0h6")
-
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
