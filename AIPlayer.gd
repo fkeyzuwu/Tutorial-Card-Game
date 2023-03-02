@@ -25,19 +25,21 @@ func _ready() -> void:
 		hand.add_child(card)
 
 func play_turn():
-	var hand_card = hand.get_children().pick_random() as Card
-	if hand_card != null:
-		play_card(hand_card)
-		await ai_pause(2.0)
+	if hand.get_child_count() >= 0:
+		var hand_card = hand.get_children().pick_random() as Card
+		if hand_card != null:
+			play_card(hand_card)
+			await ai_pause(2.0)
 	
-	var board_card = board.get_children().pick_random() as Card
-	if board_card == null:
-		print("no board card available")
-	var player_card = GameManager.player_board.get_children().pick_random() as Card
-	if player_card != null:
-		board_card.damage_card(player_card)
-		print(board_card.card_data.name + "damaged " + player_card.card_data.name)
-		await ai_pause(2.0)
+	if board.get_child_count() >= 0:
+		var board_card = board.get_children().pick_random() as Card
+		var player_board = GameManager.player_board
+		if player_board.get_child_count() >= 0:
+			var player_card = GameManager.player_board.get_children().pick_random() as Card
+			board_card.damage_card(player_card)
+			print(board_card.card_data.name + " damaged " + player_card.card_data.name)
+			await ai_pause(2.0)
+			
 	GameManager.switch_game_state(GameManager.GameState.PlayerTurn)
 
 func play_card(card: Card):

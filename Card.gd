@@ -1,4 +1,5 @@
 @tool
+##Card instance class for in game board use.
 class_name Card extends Control
 
 var card_owner: String #player or ai or the other player
