@@ -22,4 +22,9 @@ func invoke_event(event: Event):
 	if !has_user_signal(event_name):
 		return
 	
-	emit_signal(event_name, event)
+	var listeners = get_signal_connection_list(event_name) #Array[Dictonary]
+	print(var_to_str(listeners))
+	for listener in listeners:
+		await get_tree().create_timer(2.0)
+		listener.callable.call(event)
+		print("invoked method " + listener.callable.get_method())
