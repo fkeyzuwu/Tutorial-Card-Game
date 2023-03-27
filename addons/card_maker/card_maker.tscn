@@ -1,0 +1,169 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6exg1yxdbuoc"]
+
+[ext_resource type="Script" path="res://addons/card_maker/card_maker.gd" id="1_knrs2"]
+[ext_resource type="PackedScene" uid="uid://6adgg04fqb5" path="res://card.tscn" id="2_850w3"]
+[ext_resource type="Script" path="res://addons/card_maker/card_data_editor.gd" id="3_5aeua"]
+
+[sub_resource type="Theme" id="Theme_kneek"]
+default_font_size = 30
+
+[node name="CardMaker" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_knrs2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CardResourcesList" type="ItemList" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_850w3")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+health = 1
+
+[node name="Health" parent="MarginContainer/HBoxContainer/Card/Background" index="1"]
+text = "1"
+
+[node name="Description" parent="MarginContainer/HBoxContainer/Card/Background" index="3"]
+text = "Card does something very cool!!!"
+
+[node name="CardDataEditor" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+script = ExtResource("3_5aeua")
+
+[node name="Name" type="PanelContainer" parent="MarginContainer/HBoxContainer/CardDataEditor"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/CardDataEditor/Name"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/CardDataEditor/Name/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PropertyName" type="Label" parent="MarginContainer/HBoxContainer/CardDataEditor/Name/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Name:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextInput" type="LineEdit" parent="MarginContainer/HBoxContainer/CardDataEditor/Name/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = SubResource("Theme_kneek")
+expand_to_text_length = true
+
+[node name="Description" type="PanelContainer" parent="MarginContainer/HBoxContainer/CardDataEditor"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/CardDataEditor/Description"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/CardDataEditor/Description/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PropertyName" type="Label" parent="MarginContainer/HBoxContainer/CardDataEditor/Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Description:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextInput" type="TextEdit" parent="MarginContainer/HBoxContainer/CardDataEditor/Description/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+theme = SubResource("Theme_kneek")
+wrap_mode = 1
+
+[node name="Health" type="PanelContainer" parent="MarginContainer/HBoxContainer/CardDataEditor"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/CardDataEditor/Health"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/CardDataEditor/Health/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PropertyName" type="Label" parent="MarginContainer/HBoxContainer/CardDataEditor/Health/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Health:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberInput" type="SpinBox" parent="MarginContainer/HBoxContainer/CardDataEditor/Health/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_kneek")
+max_value = 1000.0
+value = 22.0
+rounded = true
+alignment = 1
+update_on_text_changed = true
+
+[node name="Attack" type="PanelContainer" parent="MarginContainer/HBoxContainer/CardDataEditor"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/CardDataEditor/Attack"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/CardDataEditor/Attack/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PropertyName" type="Label" parent="MarginContainer/HBoxContainer/CardDataEditor/Attack/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Attack:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberInput" type="SpinBox" parent="MarginContainer/HBoxContainer/CardDataEditor/Attack/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_kneek")
+max_value = 1000.0
+value = 12.0
+rounded = true
+alignment = 1
+update_on_text_changed = true
+
+[connection signal="item_selected" from="MarginContainer/HBoxContainer/CardResourcesList" to="." method="_on_card_resources_list_item_selected"]
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/CardDataEditor/Name/MarginContainer/VBoxContainer/TextInput" to="MarginContainer/HBoxContainer/CardDataEditor" method="_on_name_text_changed"]
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/CardDataEditor/Description/MarginContainer/VBoxContainer/TextInput" to="MarginContainer/HBoxContainer/CardDataEditor" method="_on_description_text_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/CardDataEditor/Health/MarginContainer/VBoxContainer/NumberInput" to="MarginContainer/HBoxContainer/CardDataEditor" method="_on_health_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/CardDataEditor/Attack/MarginContainer/VBoxContainer/NumberInput" to="MarginContainer/HBoxContainer/CardDataEditor" method="_on_attack_value_changed"]
+
+[editable path="MarginContainer/HBoxContainer/Card"]

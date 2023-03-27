@@ -82,7 +82,6 @@ func heal_card(card: Card):
 	EventManager.invoke_event(heal_event)
 
 func kill_card():
-	pass
 	EventManager.invoke_event(MonsterDiedEvent.new(self))
 	queue_free()
 

@@ -12,12 +12,12 @@
 script = ExtResource("1_od17t")
 value = 5
 operator = 3
-listen_states = [2]
+listen_states = Array[int]([2])
 
 [sub_resource type="Resource" id="Resource_6t7go"]
 script = ExtResource("2_ewrqq")
 card_inclusion = 0
-listen_states = [2]
+listen_states = Array[int]([2])
 
 [sub_resource type="Resource" id="Resource_qd3j7"]
 script = ExtResource("3_63i4a")
@@ -29,7 +29,7 @@ target = SubResource("Resource_qd3j7")
 event_triggers = Array[GDScript]([ExtResource("2_x4m1d")])
 ability_type = 1
 activation_type = 0
-activation_states = [2]
+activation_states = Array[int]([2])
 conditions = Array[Resource("res://Conditions/Condition.gd")]([SubResource("Resource_3j66w"), SubResource("Resource_6t7go")])
 
 [resource]

@@ -7,9 +7,9 @@
 resource_name = "Default"
 script = ExtResource("1_vfejs")
 name = "Default"
-description = "Card does something very cool!"
+description = "Card does something very cool!!!"
 health = 1
-attack = 1
+attack = 12
 texture = ExtResource("2_c544n")
 background_color = Color(0.176419, 0.176419, 0.176419, 1)
 abilities = Array[Resource("res://Abilities/Ability.gd")]([])

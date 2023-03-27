@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bgt7chfplo5k3" path="res://sprites/pokemon/main-sprites/diamond-pearl/374.png" id="2_4dxlr"]
 
 [resource]
-resource_name = "Wooper"
+resource_name = "Kyogre"
 script = ExtResource("1_e1xgy")
-name = "Wooper"
-description = "woop"
+name = "Kyogre"
+description = "kyog"
 health = 1
 attack = 1
 texture = ExtResource("2_4dxlr")

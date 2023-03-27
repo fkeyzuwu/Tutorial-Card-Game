@@ -17,7 +17,7 @@ target = SubResource("Resource_i0lbg")
 event_triggers = Array[GDScript]([ExtResource("1_mrdvj")])
 ability_type = 0
 activation_type = 0
-activation_states = [2]
+activation_states = Array[int]([2])
 conditions = Array[Resource("res://Conditions/Condition.gd")]([])
 
 [resource]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://6adgg04fqb5"]
+[gd_scene load_steps=8 format=3 uid="uid://6adgg04fqb5"]
 
 [ext_resource type="Script" path="res://Card.gd" id="1_enmrx"]
 [ext_resource type="FontFile" uid="uid://rxc8di7fpovr" path="res://fonts/NotoSans-Regular.ttf" id="2_opbve"]
+[ext_resource type="Resource" uid="uid://rc63scdrbyim" path="res://Pokemon Cards/default.tres" id="2_pjig2"]
 [ext_resource type="Texture2D" uid="uid://bgt7chfplo5k3" path="res://sprites/pokemon/main-sprites/diamond-pearl/374.png" id="3_8alx8"]
 [ext_resource type="PackedScene" uid="uid://x2a5txx1asp1" path="res://heal_effect.tscn" id="3_nytk6"]
 [ext_resource type="PackedScene" uid="uid://b32y48bu2g3x" path="res://damage_effect.tscn" id="4_ijd3d"]
@@ -10,6 +11,7 @@
 size = Vector2(200, 300)
 
 [node name="Card" type="Control"]
+custom_minimum_size = Vector2(200, 300)
 layout_mode = 3
 anchors_preset = 0
 offset_left = -100.0
@@ -20,8 +22,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_enmrx")
-health = 1
-attack = 1
+card_data = ExtResource("2_pjig2")
+health = 22
+attack = 12
 heal_particle_effect = ExtResource("3_nytk6")
 damage_particle_effect = ExtResource("4_ijd3d")
 
@@ -64,7 +67,7 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_opbve")
 theme_override_font_sizes/font_size = 36
-text = "1"
+text = "22"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -81,7 +84,7 @@ scale = Vector2(1.00172, 1)
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_fonts/font = ExtResource("2_opbve")
 theme_override_font_sizes/font_size = 36
-text = "1"
+text = "12"
 horizontal_alignment = 1
 vertical_alignment = 1
 
